@@ -234,3 +234,16 @@ body>footer>.script{font-family:"DM Sans",Arial,sans-serif;font-weight:700;lette
 .home-show .show-controls{bottom:12px}
 @media(max-width:900px){.site-header{padding-left:20px;padding-right:120px}}
 @media(max-width:640px){.home-show{width:calc(100% - 28px);margin:18px auto}.home-show .home-caption{font-size:clamp(28px,9vw,54px)}.home-show .show-controls{bottom:6px;gap:0}.show-controls button{min-width:36px}.scene-dots button{min-width:24px}#pause-show{font-size:12px;padding:6px}.site-header .nav-toggle{right:14px}}
+/* Matching wordmarks and cream dripping only from the header wordmark. */
+.site-name,body>footer .footer-brand{font:700 clamp(52px,6vw,76px)/1.2 "DM Sans",Arial,sans-serif;letter-spacing:-.05em;color:#000}
+body>footer .footer-brand{display:block;text-align:center;margin:0 auto 14px}
+.site-header{z-index:25}
+.site-header .site-name{position:relative;display:inline-block;isolation:isolate}
+.site-header .site-name::after{content:"";position:absolute;left:0;right:0;top:calc(100% - 8px);height:52px;background:url('logo-cream.svg') center top / 100% 100% no-repeat;transform-origin:top;animation:logo-cream-flow 6s ease-in-out infinite alternate;pointer-events:none;z-index:-1}
+@keyframes logo-cream-flow{from{transform:scaleY(.55)}to{transform:scaleY(1)}}
+.home-show{border-radius:24px;background:#fff0b8;border:1px solid #e2ce91;margin-top:44px;overflow:hidden}
+.home-show .home-scene{background:transparent}
+.home-show .home-caption{color:#e8a4bb;text-shadow:0 1px 0 #fff2;z-index:10}
+@media(max-width:900px){.site-header .site-name{font-size:60px}}
+@media(max-width:640px){.site-header .site-name::after{height:38px}.home-show{border-radius:18px;margin-top:36px}.site-name,body>footer .footer-brand{font-size:52px}}
+@media(prefers-reduced-motion:reduce){.site-header .site-name::after{animation:none;transform:scaleY(1)}}
