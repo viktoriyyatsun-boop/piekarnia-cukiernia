@@ -16,7 +16,6 @@
   else previous.hidden=true;
   scenes[current].hidden=false;
   if(!reduced.matches)scenes[current].classList.add('entering');
-  show.querySelector('.home-caption').textContent=scenes[current].dataset.caption;
   dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===current)));
   transitionTimer=setTimeout(()=>{scenes.forEach((scene,i)=>{scene.hidden=i!==current;scene.classList.remove('entering','exiting');scene.removeAttribute('aria-hidden');scene.inert=false;});},650);
   if(announce)show.querySelector('.scene-announcement').textContent=scenes[current].getAttribute('aria-label');
