@@ -254,3 +254,8 @@ body>footer .footer-brand{display:block;text-align:center;margin:0 auto 14px}
 
 /* Clean header wordmark without cream decoration. */
 .site-header .site-name::after{content:none;display:none;animation:none}
+
+/* Menu control on the left side of the masthead. */
+.site-header .nav-toggle{left:20px;right:auto}
+@media(max-width:900px){.site-header{justify-content:center;padding-left:120px;padding-right:120px}}
+@media(max-width:640px){.site-header .nav-toggle{left:14px;right:auto}.site-header{padding-left:108px;padding-right:16px}.site-header .site-name{font-size:clamp(38px,10vw,52px)}}
