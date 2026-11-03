@@ -247,3 +247,7 @@ body>footer .footer-brand{display:block;text-align:center;margin:0 auto 14px}
 @media(max-width:900px){.site-header .site-name{font-size:60px}}
 @media(max-width:640px){.site-header .site-name::after{height:38px}.home-show{border-radius:18px;margin-top:36px}.site-name,body>footer .footer-brand{font-size:52px}}
 @media(prefers-reduced-motion:reduce){.site-header .site-name::after{animation:none;transform:scaleY(1)}}
+/* Real cream touches the wordmark, with no gap under the letters. */
+.site-header .site-name::after{top:calc(100% - .29em);height:.95em;background-image:url('logo-cream-realistic.png');background-size:100% 100%;animation:real-cream-flow 7s ease-in-out infinite alternate}
+@keyframes real-cream-flow{from{transform:scaleY(.88)}to{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.site-header .site-name::after{animation:none;transform:none}}
