@@ -164,3 +164,12 @@ body{font-family:"DM Sans",Arial,sans-serif;font-size:17px}
 @media(max-width:640px){.rotating-food{width:95%;max-width:390px}}
 @media(prefers-reduced-motion:reduce){.rotating-food,.home-scene.entering,.home-scene.exiting{animation:none!important}}
 .home-show.paused .home-scene.entering,.home-show.paused .home-scene.exiting{animation-play-state:running!important}
+
+/* Descending pastries: 0.6s arrival, about 2s resting, then replacement. */
+.rotating-food{animation:none!important;transform:none}
+.rotating-pops{background-image:url('cake-pops-outward.png');background-size:contain;background-position:center}
+.home-scene.entering{animation:pastry-enter-down .6s cubic-bezier(.22,.61,.36,1) both}
+.home-scene.exiting{animation:pastry-exit-down .6s cubic-bezier(.55,.06,.68,.19) both}
+@keyframes pastry-enter-down{from{transform:translateY(-100%);opacity:0}to{transform:translateY(0);opacity:1}}
+@keyframes pastry-exit-down{from{transform:translateY(0);opacity:1}to{transform:translateY(100%);opacity:0}}
+@media(prefers-reduced-motion:reduce){.home-scene.entering,.home-scene.exiting{animation:none!important}}

@@ -5,7 +5,7 @@
  const pause=document.getElementById('pause-show');
  const reduced=matchMedia('(prefers-reduced-motion: reduce)');
  let current=0,paused=reduced.matches,timer,startX,transitionTimer;
- function schedule(){clearTimeout(timer);if(!paused&&!document.hidden)timer=setTimeout(()=>select(current+1,false),7000);}
+ function schedule(){clearTimeout(timer);if(!paused&&!document.hidden)timer=setTimeout(()=>select(current+1,false),2600);}
  function select(index,announce=true){
   const next=(index+scenes.length)%scenes.length;
   if(next===current){schedule();return;}
@@ -33,5 +33,6 @@
  show.addEventListener('focusin',e=>{if(e.target!==pause)setPaused(true);});
  document.addEventListener('visibilitychange',schedule);
  reduced.addEventListener('change',()=>setPaused(reduced.matches));
+ if(!reduced.matches){scenes[0].classList.add('entering');transitionTimer=setTimeout(()=>scenes[0].classList.remove('entering'),650);}
  setPaused(paused);
 })();
