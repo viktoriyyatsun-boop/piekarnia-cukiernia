@@ -150,3 +150,17 @@ body{font-family:"DM Sans",Arial,sans-serif;font-size:17px}
 @keyframes photo-tart{0%,15%{transform:translateY(-25%) rotate(-12deg);opacity:1}45%{transform:translateY(40%) rotate(23deg);opacity:1}51%,90%{transform:translateY(48%) rotate(30deg);opacity:0}100%{transform:translateY(-25%);opacity:1}}
 @media(max-width:640px){.photo-stage{height:49svh}.food-cream{width:90%;left:5%;bottom:0}.food-berry{width:42%;left:29%;top:8%}.food-cake{width:85%;left:-7%;top:20%}.food-spoon{width:68%;right:-5%;top:35%}.food-tart{width:85%;left:7.5%;top:12%}}
 @media(prefers-reduced-motion:reduce){.food-berry{transform:translateY(90%)}.food-tart{opacity:0}.photo-word{opacity:1}}
+
+/* A simple rotating pastry carousel with horizontal scene transitions. */
+.home-show{display:grid}
+.home-show .home-scene{grid-area:1 / 1;min-width:0}
+.rotating-food{position:absolute;width:min(92%,540px);aspect-ratio:1;left:50%;top:50%;translate:-50% -50%;background-image:url('home-rotating-pastries.png');background-size:200% 200%;background-repeat:no-repeat;filter:drop-shadow(0 18px 15px #713a4215);animation:pastry-turn 28s linear infinite}
+.rotating-cake{background-position:0% 0%}.rotating-tart{background-position:100% 0%}.rotating-bun{background-position:0% 100%}.rotating-pops{background-position:100% 100%;animation-duration:34s}
+.home-scene.entering{animation:scene-enter .65s cubic-bezier(.22,.61,.36,1) both}
+.home-scene.exiting{animation:scene-exit .65s cubic-bezier(.22,.61,.36,1) both;pointer-events:none}
+@keyframes pastry-turn{from{transform:rotate(-8deg)}to{transform:rotate(352deg)}}
+@keyframes scene-enter{from{transform:translateX(100%);opacity:.4}to{transform:translateX(0);opacity:1}}
+@keyframes scene-exit{from{transform:translateX(0);opacity:1}to{transform:translateX(-100%);opacity:.4}}
+@media(max-width:640px){.rotating-food{width:95%;max-width:390px}}
+@media(prefers-reduced-motion:reduce){.rotating-food,.home-scene.entering,.home-scene.exiting{animation:none!important}}
+.home-show.paused .home-scene.entering,.home-show.paused .home-scene.exiting{animation-play-state:running!important}
