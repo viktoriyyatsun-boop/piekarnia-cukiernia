@@ -251,3 +251,6 @@ body>footer .footer-brand{display:block;text-align:center;margin:0 auto 14px}
 .site-header .site-name::after{top:calc(100% - .29em);height:.95em;background-image:url('logo-cream-realistic.png');background-size:100% 100%;animation:real-cream-flow 7s ease-in-out infinite alternate}
 @keyframes real-cream-flow{from{transform:scaleY(.88)}to{transform:scaleY(1)}}
 @media(prefers-reduced-motion:reduce){.site-header .site-name::after{animation:none;transform:none}}
+
+/* Clean header wordmark without cream decoration. */
+.site-header .site-name::after{content:none;display:none;animation:none}
